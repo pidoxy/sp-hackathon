@@ -6,8 +6,24 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import Dashboard from "./pages/dashboard";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeContextProvider } from "./context/ThemeContext";
+import api from "./services/api";
+import { useEffect } from "react";
 
 const App = () => {
+
+  useEffect(() => {
+    api
+    .fetchAdmins()
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => console.log(false));
+  
+  }, [])
+
   return (
     <>
       <ErrorBoundary>

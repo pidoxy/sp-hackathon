@@ -1,6 +1,5 @@
-import { Children } from "react";
-
 const DashHead = ({ children }) => {
+    
   return (
     <>
       <header className="bg-white shadow">

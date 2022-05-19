@@ -21,13 +21,6 @@ const Dashboard = () => {
         <Route
           path="/"
           element={
-            <CatalogUpload />
-          }
-        />
-        {/* Add products page */}
-        <Route
-          path="/add-product"
-          element={
             <div className="flex">
               <Sidebar />
               <div className="p-5 flex-1 flex space-y-2 flex-col overflow-hidden">
@@ -97,6 +90,14 @@ const Dashboard = () => {
             </div>
           }
         />
+        {/* Add products page */}
+        <Route
+          path="/add-product"
+          element={
+            <CatalogUpload />
+          }
+        />
+        {/* 404 page */}
         <Route
           path="*"
           element={
