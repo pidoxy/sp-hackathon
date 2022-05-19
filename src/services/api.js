@@ -7,6 +7,10 @@ const fetchAdmins = () => {
   return axios({
     method: "get",
     url: `${baseUrl}/Admin`,
+    headers: {
+        "Accept": "/"
+        // authId: "JZNJY9YQSwWaoQ5gd71iuA==",
+      },
   });
 };
 
@@ -32,7 +36,7 @@ const fetchUsers = () => {
     });
   };
 
-export default {
+export {
   fetchAdmins,
   fetchUsers,
   fetchProducts,
