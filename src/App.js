@@ -6,20 +6,8 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeContextProvider } from "./context/ThemeContext";
-// import { fetchAdmins, fetchProducts } from "./services/api";
-import { useEffect } from "react";
 
 const App = () => {
-  useEffect(() => {
-      // fetchProducts()
-      // .then((res) => {
-      //   console.log(res);
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-      // .finally(() => console.log(false));
-  }, []);
 
   return (
     <>
@@ -32,10 +20,9 @@ const App = () => {
               {/* <Route path="/" element={<ProtectedRoutes />}> */}
                 <Route path="/dashboard/*" element={<Dashboard />} />
               {/* </Route> */}
-              <Route path="/" element={<Login />}>
+              <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-              </Route>
               <Route
                 path="*"
                 element={
