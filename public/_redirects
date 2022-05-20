@@ -1,5 +1,5 @@
-/                      
-/dashboard/*     
-/signup      
-/login            
-/program-report        
+# Redirects from what the browser requests to what we serve
+/login              /
+/signup             /signup
+/dashboard          /dashboard
+
