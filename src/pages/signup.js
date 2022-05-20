@@ -3,30 +3,32 @@ import { useState } from "react";
 import { createAdmin, createUser } from "../services/api";
 
 const Signup = () => {
-  const [userData, setUserData] = useState({account: "" , firstname: "", lastname: "", email: "", password: "", });
+  const [userData, setUserData] = useState({account: "" , firstname: "", lastname: "", email: "", 
+  password: "", phoneNo: "", 
+ });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userData);
 
     if(userData.account === "consumer"){
-    createUser
+    createUser({firstName: userData.firstname, lastName: userData.lastname, Email: userData.email, phoneNo: userData.phoneNumber})
       .then((res) => {
         console.log(res);
-        alert("Signup successful")
+        alert("Signup as consumer successful")
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => console.log(false));
     }else if(userData.account === "admin"){
-    createAdmin
+    createAdmin(userData)
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
         console.log(err);
-        alert("Signup successful")
+        alert("Signup as admin successful")
 
       })
       .finally(() => console.log(false));
@@ -37,12 +39,14 @@ const Signup = () => {
 
     if(!userData.account){
       alert("Choose a type of account")
-    } else if(userData.email){
+    } else if(!userData.email){
       alert("Input your email")
-    } else if(userData.firstname || userData.lastname){
+    } else if(!userData.firstname || !userData.lastname){
       alert("Inputyour name")
-    } else {
+    } else if(!userData.password){
       alert("Input your Password")
+    } else{
+      return null;
     }
   };
 
@@ -115,6 +119,24 @@ const Signup = () => {
                   }}
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Phone No
+                </label>
+                <input
+                  id="phoneNo"
+                  name="phoneNo"
+                  type="text"
+                  autoComplete="phoneNo"
+                  required
+                  value={userData.phoneNo}
+                  onChange={(e) => {
+                    setUserData({ ...userData, phoneNo: e.target.value });
+                  }}
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Phone No"
                 />
               </div>
               <div>

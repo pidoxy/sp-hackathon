@@ -8,7 +8,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeContextProvider } from "./context/ThemeContext";
 
 const App = () => {
-
+    
   return (
     <>
       <ErrorBoundary>

@@ -1,8 +1,8 @@
 import Sidebar from "../../components/Sidebar";
 import DashboardHead from "../../components/dashHead";
-import { Upload, message } from "antd";
+import { Upload, message, Row } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
-import 'antd/dist/antd.min.css';
+import "antd/dist/antd.min.css";
 import { useState } from "react";
 
 const CatalogUpload = () => {
@@ -81,9 +81,9 @@ const CatalogUpload = () => {
                       });
                     }}
                   >
-                    <option>New Mexico</option>
-                    <option>Missouri</option>
-                    <option>Texas</option>
+                    <option>Sneakers</option>
+                    <option>Dress</option>
+                    <option>Smart Gadgets</option>
                   </select>
                 </div>
                 <div className="w-full md:w-1/3 px-3">
@@ -93,12 +93,21 @@ const CatalogUpload = () => {
                   >
                     Gender
                   </label>
-                  <input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="gender"
-                    type="text"
-                    placeholder="Doe"
-                  />
+                  <select
+                    className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="category"
+                    value={productData.gender}
+                    onChange={(e) => {
+                      setProductData({
+                        ...productData,
+                        gender: e.target.value,
+                      });
+                    }}
+                  >
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Do not wish to disclose</option>
+                  </select>
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
@@ -109,19 +118,18 @@ const CatalogUpload = () => {
                   >
                     Brand
                   </label>
-                  <input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-password"
-                    type="password"
-                    placeholder="******************"
+                  <select
+                    className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="brand"
                     value={productData.brand}
                     onChange={(e) => {
                       setProductData({ ...productData, brand: e.target.value });
                     }}
-                  />
-                  <p className="text-gray-600 text-xs italic">
-                    Make it as long and as crazy as you'd like
-                  </p>
+                  >
+                    <option defaultValue={""}>Nike</option>
+                    <option>Adiddas</option>
+                    <option>Puma</option>
+                  </select>
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-2">
@@ -195,18 +203,22 @@ const CatalogUpload = () => {
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="size"
                     value={productData.size}
-                    onChange={(e) => { setProductData({ ...productData, size: e.target.value }) }}
+                    onChange={(e) => {
+                      setProductData({ ...productData, size: e.target.value });
+                    }}
                   >
-                    <option>New Mexico</option>
-                    <option>Missouri</option>
-                    <option>Texas</option>
+                    <option>EU-44</option>
+                    <option>EU-42</option>
+                    <option>EU-46</option>
                   </select>
                 </div>
                 <div className="w-full md:w-1/3 px-3">
                   <button
                     className="shadow bg-sky-800 hover:bg-sky-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                     type="button"
-                    onClick={() => { console.log(productData) }}
+                    onClick={() => {
+                      console.log(productData);
+                    }}
                   >
                     Add Product
                   </button>
