@@ -1,6 +1,6 @@
 import Sidebar from "../../components/Sidebar";
 import DashboardHead from "../../components/dashHead";
-import { Upload, message, Row } from "antd";
+import { Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import "antd/dist/antd.min.css";
 import { useState } from "react";

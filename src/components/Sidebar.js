@@ -1,4 +1,4 @@
-import Toggle from './ThemeToggle';
+// import Toggle from './ThemeToggle';
 
 const Sidebar = (props) => {
     return (
